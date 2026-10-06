@@ -8,4 +8,4 @@ function isPalindrome(string) {
   return normalised === reversed;
 }
 
-export { checkLength, isPalindrome };
+export { isPalindrome, checkLength };
