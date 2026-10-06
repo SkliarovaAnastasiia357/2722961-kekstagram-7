@@ -8,4 +8,17 @@ function isPalindrome(string) {
   return normalised === reversed;
 }
 
-export { isPalindrome, checkLength };
+const isMeetingWithinWorkday = (workStart, workEnd, meetingStart, meetingDuration) => {
+  const toMinutes = (timeString) => {
+    const [hours, minutes] = timeString.split(':').map(Number);
+    return hours * 60 + minutes;
+  };
+
+  const workStartMinutes = toMinutes(workStart);
+  const workEndMinutes = toMinutes(workEnd);
+  const meetingStartMinutes = toMinutes(meetingStart);
+  const meetingEndMinutes = meetingStartMinutes + meetingDuration;
+
+  return meetingStartMinutes >= workStartMinutes && meetingEndMinutes <= workEndMinutes;
+};
+export { checkLength, isPalindrome, isMeetingWithinWorkday };
