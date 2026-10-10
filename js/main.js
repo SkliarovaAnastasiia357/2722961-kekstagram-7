@@ -32,23 +32,6 @@ const createComments = () => {
   return comments;
 };
 
-const createPhotos = () => {
-  const photos = [];
-  for (let i = 1; i <= 25; i++) {
-    photos.push({
-      id: i,
-      url: `photos/${i}.jpg`,
-      description: `Описание фотографии №${i}`,
-      likes: getRandomInteger(15, 200),
-      comments: createComments()
-    });
-  }
-  return photos;
-};
-
-import { createPhotos } from './generate.js';
 import { renderPictures } from './render.js';
-
-const photos = createPhotos();
 
 renderPictures(photos);
