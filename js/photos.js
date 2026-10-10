@@ -1,11 +1,5 @@
-import { createPhotos } from './generate.js';
-import { renderPictures } from './render.js';
-
-const photos = createPhotos();
-
-const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-const getRandomArrayElement = (array) => array[getRandomInteger(0, array.length - 1)];
+import { NAMES, MESSAGES } from './data.js';
+import { getRandomInteger, getRandomArrayElement } from './util.js';
 
 const createComment = () => ({
   id: getRandomInteger(1, 1000),
@@ -37,4 +31,4 @@ const createPhotos = () => {
   return photos;
 };
 
-renderPictures(photos);
+export { createPhotos };
