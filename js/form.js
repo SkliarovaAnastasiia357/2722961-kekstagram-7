@@ -1,3 +1,4 @@
+import { resetScale, resetEffects } from './effects.js';
 // Находим элементы формы
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = document.querySelector('#upload-file');
@@ -48,15 +49,17 @@ pristine.addValidator(hashtagsInput, validateHashtagCount, 'Нельзя ука�
 pristine.addValidator(hashtagsInput, validateHashtagUniqueness, 'Хэштеги не должны повторяться.');
 pristine.addValidator(descriptionInput, validateDescription, 'Комментарий не может быть длиннее 140 символов.');
 
-function closeForm() {
+const closeForm = () => {
   uploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
 
   uploadForm.reset();
   pristine.reset();
+  resetScale(); // Сброс масштаба
+  resetEffects(); // Сброс эффектов
 
   document.removeEventListener('keydown', onEscKeyDown);
-}
+};
 
 function onEscKeyDown(evt) {
   if (evt.key === 'Escape') {
