@@ -21,4 +21,5 @@ const isMeetingWithinWorkday = (workStart, workEnd, meetingStart, meetingDuratio
 
   return meetingStartMinutes >= workStartMinutes && meetingEndMinutes <= workEndMinutes;
 };
+
 export { checkLength, isPalindrome, isMeetingWithinWorkday };
